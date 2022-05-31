@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Checkerboard</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title{
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    font-family: monospace;
+    font-size: xx-large;
+    text-shadow: 1px 1px 1px black;
+}
+
+.black{
+    color: black;
+}
+
+.red{
+    color: red;
+}
+
+.container{
+    display: grid;
+    place-content: center;
+    flex-wrap: wrap;
+    width: 1800px;
+    margin: auto;
+}
+
+.black_box{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
+.red_box{
+    width: 75px;
+    height: 75px;
+    background-color:red;
+}
+
+table{
+    background-color: black;
+    margin: 0 auto;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="title">
+        Checkers
+    </div>
+    <table>
+        {% for i in range(0, length): %}
+        {% if i % 2 != 0: %}
+        <tr>
+            {% for j in range(0, width): %}
+            {% if j % 2 != 0: %}
+            <td class="black_box"></td>
+            {% endif %}
+            {% if j % 2 == 0: %}
+            <td class="red_box"></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endif %}
+        {% if i % 2 == 0: %}
+        <tr>
+            {% for j in range(0, width): %}
+            {% if j % 2 != 0: %}
+            <td class="red_box"></td>
+            {% endif %}
+            {% if j % 2 == 0: %}
+            <td class="black_box"></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
